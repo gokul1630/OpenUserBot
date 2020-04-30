@@ -130,8 +130,16 @@ async def pipcheck(pip):
 
 @register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
+    if not is_mongo_alive() and not is_redis_alive():
+        db = "Both Mongo and Redis Database seems to be failing!"
+    elif not is_mongo_alive():
+        db = "Mongo DB seems to be failing!"
+    elif not is_redis_alive():
+        db = "Redis Cache seems to be failing!"
+    else:
+        db = "Databases functioning normally!"
     """ For .alive command, check if the bot is running.  """
-        await alive.edit("`"
+    await alive.edit("`"
                       "ι αм αℓινє му мαѕтєя \n"
                      f"тєℓєтнση νєяѕιση: {version.__version__} \n"
                      f"pчthσn vєrѕíσn: {python_version()} \n"
