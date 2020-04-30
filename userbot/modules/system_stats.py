@@ -130,7 +130,7 @@ async def pipcheck(pip):
 
 @register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
-    if not is_mongo_alive()
+    if not is_mongo_alive():
         db = "Mongo DB seems to be failing!"
     else:
         db = "Mongo DB functioning normally!"
