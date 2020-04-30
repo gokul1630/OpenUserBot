@@ -80,7 +80,7 @@ async def upstream(ups):
         repo.heads.sql-extended.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != 'sql-extended':
+    if ac_br != 'master':
         await ups.edit(
             f'**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). '
             'in that case, Updater is unable to identify '
