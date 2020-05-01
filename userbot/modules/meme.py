@@ -22,7 +22,7 @@ import sys
 
 
 
-@borg.on(events.NewMessage(pattern=r"\.meme", outgoing=True))
+@register(pattern=r"\.meme", outgoing=True)
 
 async def meme(event):
 
@@ -102,7 +102,7 @@ usage:- .flower
 
 """
 
-@borg.on(events.NewMessage(pattern=r"\.🖕", outgoing=True))
+@register(pattern=r"\.🖕", outgoing=True)
 
 async def meme(event):
 
@@ -137,7 +137,7 @@ async def meme(event):
     await asyncio.sleep(sleepValue)
 
 
-@borg.on(events.NewMessage(pattern=r"\.resp", outgoing=True))
+@register(pattern=r"\.resp", outgoing=True)
 async def meme(event):
 	if event.fwd_from:
 		return   
